@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
@@ -22,7 +23,19 @@ module.exports = {
                 }
             ],
         }),
+        new webpack.ProvidePlugin({
+            _: "underscore"
+        })
     ],
+    module: {
+        rules: [{
+            test: /\.ejs$/,
+            loader: 'ejs-loader',
+            options: {
+                variable: 'data'
+            }
+        }]
+    },
     output: {
         filename: 'js/main.js',
         path: path.resolve(__dirname, 'dist'),
