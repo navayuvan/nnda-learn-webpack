@@ -4,7 +4,7 @@ $(function(){
     $('#nnda-btn0').click(function(){
         $("#nnda-div0").html(templateFn.bind(this, {
             fname: 'nava',
-            mname: 'yuvan',
+            mname: '<b>yuvan</b>',
             lname: 'viswa',
             isTrue: () => false
         }));
